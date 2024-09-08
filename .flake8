@@ -1,0 +1,9 @@
+[flake8]
+exclude =
+    .git,
+    docs,
+    venv,
+    .venv,
+    build,
+    dist
+ignore = E501, W503
