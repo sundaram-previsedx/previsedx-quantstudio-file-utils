@@ -1,12 +1,63 @@
-[tool.deadcode]
-exclude = ["tests", "venv", "docs", "build"]
-# ignore_decorators = ["@app.route", "@require_*"]
-# ignore_names = ["visit_*", "do_*"]
-# make_whitelist = true
-# min_confidence = 80
-# paths = ["myscript.py", "mydir", "whitelist.py"]
-sort_by_size = true
-# verbose = true
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
-[tool.vulture]
-exclude = ["tests", "venv", "docs", "build"]
+[project]
+name = "previsedx_quantstudio_file_utils"
+version = "0.1.0"
+description = "Collection of Python modules for processing QuantStudio files"
+readme = "README.rst"
+authors = [
+  {name = "Jaideep Sundaram", email = "sundaram.previse@gmail.com"}
+]
+maintainers = [
+  {name = "Jaideep Sundaram", email = "sundaram.previse@gmail.com"}
+]
+classifiers = [
+
+]
+license = {text = "GNU General Public License v3"}
+dependencies = [
+  
+]
+
+[project.optional-dependencies]
+dev = [
+    "coverage",  # testing
+    "mypy",  # linting
+    "pytest",  # testing
+    "ruff"  # linting
+]
+
+[project.urls]
+
+bugs = "https://github.com/sundaram-previsedx/previsedx_quantstudio_file_utils/issues"
+changelog = "https://github.com/sundaram-previsedx/previsedx_quantstudio_file_utils/blob/master/changelog.md"
+homepage = "https://github.com/sundaram-previsedx/previsedx_quantstudio_file_utils"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"*" = ["*.*"]
+
+
+
+
+# Mypy
+# ----
+
+[tool.mypy]
+files = "."
+
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
+
+[[tool.mypy.overrides]]
+# Don't require test functions to include types
+module = "tests.*"
+allow_untyped_defs = true
+disable_error_code = "attr-defined"
+
