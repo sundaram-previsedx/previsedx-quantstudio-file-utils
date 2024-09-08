@@ -1,0 +1,36 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>20</x><y>320</y><w>240</w><h>300</h></coordinates><panel_attributes>bg=green
+Record
+
+--
+- well: str
+- wellposition: Optional[str]
+- samplename: Optional[str]
+- targetname: Optional[str]
+- quantity: Optional[float]
+- quantitymena: Optional[float]
+- quantitysd: Optional[float]
+- yintercept: float
+- rsuperscript2: float
+- slope: float
+- efficiency: Optional[float]
+- ampstatus: str
+- nmv: Optional[float]
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>0</y><w>280</w><h>280</h></coordinates><panel_attributes>bg=green
+Parser
+
+--
+- config: Dict[str, Any]
+- config_file: str
+- logfile: str
+- outdir: str
+- verbose: bool
+- is_parsed: bool
+- rec_ctr: int
+- rec_list: List[Record]
+- error_ctr: int
+- error_list: List[str]
+--
++ get_records(infile: str) -&gt; List[Record]
++ get_record(sample_id: int) -&gt; Record
+- _write_validation_report(infile: str)</panel_attributes><additional_attributes></additional_attributes></element></diagram>

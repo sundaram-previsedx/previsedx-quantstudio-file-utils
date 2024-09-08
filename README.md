@@ -34,7 +34,7 @@ Please see the [INSTALL](docs/INSTALL.md) guide for instructions.
 
 ```python
 import os
-from previsedx_quantstudio_file_utils QSXlsxParser as Parser
+from previsedx_quantstudio_file_utils QuantStudioXlsxParser as Parser
 from previsedx_quantstudio_file_utils import constants
 
 config_file = "conf/config.yaml"
@@ -51,8 +51,10 @@ parser = Parser(
     verbose=constants.verbose,
 )
 
-infile = "quantstudio.xlsx"
+infile = "quantstudio.xls"
 records = parser.get_records(infile)
+for record in records:
+  print(f"Quantity mean is '{record.quantitymean}' for sample '{record.samplename}'")
 ```
 
 ## Contributing
