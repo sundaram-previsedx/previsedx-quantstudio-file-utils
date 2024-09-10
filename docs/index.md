@@ -1,12 +1,9 @@
-# Welcome to TBD
+# Welcome to PreviseDx QuantStudio File Utils
 
-TBD
+Collection of Python modules for processing QuantStudio Excel files.
 
-## Commands
-
-The following exported scripts are available:
 
 ## References
 
-[GitHub](https://github.com/jai-python3/TBD)
-[PYPI](https://pypi.org/project/TBD/)
+[GitHub](https://github.com/sundaram-previsedx/previsedx-quantstudio-file-utils)
+[PYPI](https://pypi.org/project/previsedx-quantstudio-file-utils/)
