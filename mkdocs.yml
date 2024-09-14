@@ -26,21 +26,42 @@ theme:
         name: Switch to light mode
       primary: teal
       accent: lime
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sundaram-previsedx
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/jsundaram/
+
+repo_url: https://github.com/sundaram-previsedx/previsedx-quantstudio-file-utils
+repo_name: sundaram-previsedx/previsedx-quantstudio-file-utils
+
 plugins:
   - search
   - mkdocstrings:
       default_handler: python
       # python:
-      handlers:
-        python:
-          paths: [previsedx_quantstudio_file_utils]
+      # handlers:
+      #   python:
+      #     paths: [previsedx_quantstudio_file_utils]
         # import_root: jira_python_utils
         # import_root: jira-python-utils
 nav:
   - Home: index.md
   - Installation: INSTALL.md
+  - CHANGELOG: CHANGELOG.md
+  - TODO: TODO.md
+
   - Code Reference:
   # INSERT CODE REFERENCE SECTION
+    - Console Helper: console_helper.md
+    - Constants: constants.md
+    - File Utils: file_utils.md
+    - Parser: parser.md
+    - XLS Parser: xls/parser.md
+    - Record: record.md
+    - System Caller: system_caller.md
 
 
 markdown_extensions:
@@ -57,8 +78,8 @@ markdown_extensions:
   - pymdownx.mark
   - attr_list
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 copyright: |
   &copy; 2024 <a href="https://github.com/sundaram-previsedx"  target="_blank" rel="noopener">Jaideep Sundaram</a>
