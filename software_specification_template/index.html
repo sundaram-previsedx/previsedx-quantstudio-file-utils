@@ -1,0 +1,1201 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Software specification template - PreviseDx QuantStudio File Utils</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#software-development-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PreviseDx QuantStudio File Utils" class="md-header__button md-logo" aria-label="PreviseDx QuantStudio File Utils" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PreviseDx QuantStudio File Utils
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Software specification template
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/sundaram-previsedx/previsedx-quantstudio-file-utils" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sundaram-previsedx/previsedx-quantstudio-file-utils
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PreviseDx QuantStudio File Utils" class="md-nav__button md-logo" aria-label="PreviseDx QuantStudio File Utils" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PreviseDx QuantStudio File Utils
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/sundaram-previsedx/previsedx-quantstudio-file-utils" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    sundaram-previsedx/previsedx-quantstudio-file-utils
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INSTALL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CHANGELOG
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TODO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TODO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Code Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../console_helper/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console Helper
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constants/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constants
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../file_utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Utils
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xls/parser/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XLS Parser
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../record/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Record
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system_caller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System Caller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-title" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Title
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functional Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-user-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. User Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-file-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. File Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-data-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Data Validation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-data-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Data Filtering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Reporting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-batch-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Batch Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-help-and-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Help and Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-interactive-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Interactive Mode
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#non-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Non-functional Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Non-functional Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Performance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-scalability" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Scalability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Reliability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-usability" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Usability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Maintainability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Compatibility
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Performance Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-portability" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Portability
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#11-testability" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Testability
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-functional-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Functional Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Functional Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Features
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-technical-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Technical Specifications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Technical Specifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-programming-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Programming Language
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Directory Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-cli-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 CLI Interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Development Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Version Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Maintenance
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<p>Below is a simple software development specification template for designing and implementing a Python Command-Line Interface (CLI) program. Feel free to customize it based on your specific needs.</p>
+<h1 id="software-development-specification">Software Development Specification</h1>
+<h2 id="project-title">Project Title</h2>
+<p><strong>Objective:</strong> Briefly describe the purpose and goals of the project.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#functional-specifications">Functional Specifications</a></li>
+<li>3.1 <a href="#use-cases">Use Cases</a></li>
+<li>3.2 <a href="#features">Features</a></li>
+<li><a href="#technical-specifications">Technical Specifications</a></li>
+<li>4.1 <a href="#programming-language">Programming Language</a></li>
+<li>4.2 <a href="#dependencies">Dependencies</a></li>
+<li>4.3 <a href="#directory-structure">Directory Structure</a></li>
+<li>4.4 <a href="#cli-interface">CLI Interface</a></li>
+<li><a href="#development-environment">Development Environment</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#version-control">Version Control</a></li>
+<li><a href="#deployment">Deployment</a></li>
+<li><a href="#maintenance">Maintenance</a></li>
+</ol>
+<h2 id="1-introduction">1. Introduction<a name="introduction"></a></h2>
+<p>Provide an overview of the project, including its purpose, target audience, and any relevant background information.</p>
+<h2 id="2-requirements">2. Requirements<a name="requirements"></a></h2>
+<p>List the functional and non-functional requirements for the project.</p>
+<h2 id="functional-requirements">Functional Requirements</h2>
+<p>Functional requirements describe the specific features and capabilities that a software system must have to meet the intended use and purpose. Here are examples of functional requirements for a Python CLI program:</p>
+<h3 id="1-user-authentication">1. User Authentication</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should support user authentication to ensure that only authorized users can access certain functionalities.</li>
+<li><strong>Acceptance Criteria:</strong> Users must provide valid credentials (username and password) to log in. Unauthorized access attempts should be denied.</li>
+</ul>
+<h3 id="2-file-processing">2. File Processing</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should be able to read, write, and manipulate files on the local filesystem.</li>
+<li><strong>Acceptance Criteria:</strong> Users should be able to specify input and output files as command-line arguments. The program must handle common file formats like text files and CSV files.</li>
+</ul>
+<h3 id="3-data-validation">3. Data Validation</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should validate user input to ensure that it meets specified criteria.</li>
+<li><strong>Acceptance Criteria:</strong> If the user provides invalid input (e.g., a non-numeric value for a numeric parameter), the program should display an appropriate error message and prompt the user to provide valid input.</li>
+</ul>
+<h3 id="4-data-filtering">4. Data Filtering</h3>
+<ul>
+<li><strong>Description:</strong> Users should be able to filter data based on specified criteria.</li>
+<li><strong>Acceptance Criteria:</strong> The program should allow users to use command-line options to filter data based on attributes such as date ranges, categories, or keywords.</li>
+</ul>
+<h3 id="5-reporting">5. Reporting</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should generate reports based on processed data.</li>
+<li><strong>Acceptance Criteria:</strong> Users should be able to request and generate reports using command-line options. The reports may be displayed on the console or saved to a specified file.</li>
+</ul>
+<h3 id="6-batch-processing">6. Batch Processing</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should support batch processing of multiple files or data sets.</li>
+<li><strong>Acceptance Criteria:</strong> Users should be able to provide a list of input files or directories as arguments, and the program should process them in sequence or in parallel.</li>
+</ul>
+<h3 id="7-logging">7. Logging</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should log relevant information for troubleshooting and auditing purposes.</li>
+<li><strong>Acceptance Criteria:</strong> The program should generate log files containing information about user actions, errors, and warnings.</li>
+</ul>
+<h3 id="8-configuration">8. Configuration</h3>
+<ul>
+<li><strong>Description:</strong> Users should be able to configure the behavior of the CLI program through a configuration file.</li>
+<li><strong>Acceptance Criteria:</strong> The program should read settings from a configuration file, allowing users to customize parameters such as default directories, logging levels, or output formats.</li>
+</ul>
+<h3 id="9-help-and-documentation">9. Help and Documentation</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should provide help messages and documentation to guide users.</li>
+<li><strong>Acceptance Criteria:</strong> Users should be able to access help messages by using a <code>--help</code> option or similar. The help messages should provide information about available commands, options, and usage examples.</li>
+</ul>
+<h3 id="10-interactive-mode">10. Interactive Mode</h3>
+<ul>
+<li><strong>Description:</strong> The CLI program should support an interactive mode for users who prefer a more dynamic and iterative experience.</li>
+<li><strong>Acceptance Criteria:</strong> Users should have the option to launch the program in interactive mode, where they can enter commands and receive immediate feedback.</li>
+</ul>
+<p>These examples cover a range of functionalities commonly found in CLI programs. Depending on the nature of your specific Python CLI program, you may have additional or different functional requirements.</p>
+<h2 id="non-functional-requirements">Non-functional Requirements</h2>
+<p>Non-functional requirements describe the qualities or characteristics that define how a software system should perform, rather than specific behaviors or features. Here are examples of non-functional requirements for a Python CLI program:</p>
+<h3 id="1-performance">1. Performance</h3>
+<ul>
+<li><strong>Response Time:</strong> The CLI program should respond to user input within 2 seconds, ensuring a responsive user experience.</li>
+<li><strong>Throughput:</strong> The program should handle a minimum of 100 file processing operations per minute.</li>
+</ul>
+<h3 id="2-scalability">2. Scalability</h3>
+<ul>
+<li><strong>Scalability:</strong> The program should be able to handle an increasing number of concurrent users without a significant decrease in performance.</li>
+<li><strong>Data Volume:</strong> It should support processing large files or datasets without a significant impact on response time.</li>
+</ul>
+<h3 id="3-reliability">3. Reliability</h3>
+<ul>
+<li><strong>Availability:</strong> The CLI program should be available 99.9% of the time during standard operating hours.</li>
+<li><strong>Fault Tolerance:</strong> The program should gracefully handle unexpected errors and recover without data loss.</li>
+</ul>
+<h3 id="4-security">4. Security</h3>
+<ul>
+<li><strong>Authentication:</strong> User authentication should use secure mechanisms (e.g., hashed passwords) to protect user credentials.</li>
+<li><strong>Authorization:</strong> Access to sensitive functionalities or data should be restricted based on user roles and permissions.</li>
+</ul>
+<h3 id="5-usability">5. Usability</h3>
+<ul>
+<li><strong>User Interface Consistency:</strong> The CLI program should have a consistent and intuitive command-line interface.</li>
+<li><strong>Documentation:</strong> The program should be well-documented, providing clear instructions on installation, configuration, and usage.</li>
+</ul>
+<h3 id="6-maintainability">6. Maintainability</h3>
+<ul>
+<li><strong>Code Maintainability:</strong> The source code should follow coding standards and be well-commented to facilitate future maintenance.</li>
+<li><strong>Modularity:</strong> The program should be designed with modular components to ease updates and modifications.</li>
+</ul>
+<h3 id="7-compatibility">7. Compatibility</h3>
+<ul>
+<li><strong>Operating System Compatibility:</strong> The CLI program should be compatible with major operating systems, including Windows, macOS, and Linux.</li>
+<li><strong>Python Version:</strong> The program should be compatible with Python 3.6 and above.</li>
+</ul>
+<h3 id="8-performance-monitoring">8. Performance Monitoring</h3>
+<ul>
+<li><strong>Logging:</strong> The program should log performance metrics, errors, and warnings for monitoring and troubleshooting purposes.</li>
+<li><strong>Alerting:</strong> Alerts should be triggered for critical errors or performance degradation.</li>
+</ul>
+<h3 id="9-portability">9. Portability</h3>
+<ul>
+<li><strong>Dependency Management:</strong> The program should manage external dependencies effectively to ensure consistent behavior across different environments.</li>
+<li><strong>Configuration Portability:</strong> Configuration files should be portable between different installations.</li>
+</ul>
+<h3 id="10-compliance">10. Compliance</h3>
+<ul>
+<li><strong>Regulatory Compliance:</strong> The CLI program should comply with relevant data protection and privacy regulations.</li>
+<li><strong>License Compliance:</strong> The program and its dependencies should adhere to open-source licenses.</li>
+</ul>
+<h3 id="11-testability">11. Testability</h3>
+<ul>
+<li><strong>Unit Testing:</strong> The code should be designed to facilitate unit testing, with a target coverage of 80% or above.</li>
+<li><strong>Integration Testing:</strong> The program should have a suite of integration tests covering key functionalities.</li>
+</ul>
+<p>These non-functional requirements focus on aspects such as performance, reliability, security, usability, maintainability, compatibility, and compliance. Adjust and expand these requirements based on the specific needs and constraints of your Python CLI program.</p>
+<h2 id="3-functional-specifications">3. Functional Specifications<a name="functional-specifications"></a></h2>
+<h3 id="31-use-cases">3.1 Use Cases<a name="use-cases"></a></h3>
+<p>List and describe the main use cases of the CLI program.</p>
+<h3 id="32-features">3.2 Features<a name="features"></a></h3>
+<p>Detail the features that the CLI program will provide.</p>
+<h2 id="4-technical-specifications">4. Technical Specifications<a name="technical-specifications"></a></h2>
+<h3 id="41-programming-language">4.1 Programming Language<a name="programming-language"></a></h3>
+<p>Specify the programming language (Python) and version to be used.</p>
+<h3 id="42-dependencies">4.2 Dependencies<a name="dependencies"></a></h3>
+<p>List any third-party libraries or modules that the project will depend on.</p>
+<h3 id="43-directory-structure">4.3 Directory Structure<a name="directory-structure"></a></h3>
+<p>Outline the recommended directory structure for the project.</p>
+<h3 id="44-cli-interface">4.4 CLI Interface<a name="cli-interface"></a></h3>
+<p>Describe the command-line interface, including commands, options, and arguments.</p>
+<h2 id="5-development-environment">5. Development Environment<a name="development-environment"></a></h2>
+<p>Specify the development tools and environment needed for the project.</p>
+<h2 id="6-testing">6. Testing<a name="testing"></a></h2>
+<p>Detail the testing approach, including unit tests, integration tests, and any testing frameworks to be used.</p>
+<h2 id="7-documentation">7. Documentation<a name="documentation"></a></h2>
+<p>Outline the documentation plan, including inline code comments, README files, and any user or developer documentation.</p>
+<h2 id="8-version-control">8. Version Control<a name="version-control"></a></h2>
+<p>Specify the version control system (e.g., Git) and repository hosting service.</p>
+<h2 id="9-deployment">9. Deployment<a name="deployment"></a></h2>
+<p>Describe the deployment process and any specific considerations.</p>
+<h2 id="10-maintenance">10. Maintenance<a name="maintenance"></a></h2>
+<p>Provide information on ongoing maintenance, bug tracking, and potential future updates.</p>
+<hr />
+<p>This template is a starting point, and you can customize it based on the specific needs and complexity of your CLI program. Ensure that each section is detailed enough to guide the development and implementation process effectively.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/sundaram-previsedx"  target="_blank" rel="noopener">Jaideep Sundaram</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/sundaram-previsedx" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/jsundaram/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
