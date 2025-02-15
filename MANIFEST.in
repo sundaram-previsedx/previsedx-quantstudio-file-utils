@@ -3,6 +3,8 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.rst
+include use_cases.png
+include class_diagrams.png
 
 recursive-include tests *
 recursive-exclude * __pycache__
