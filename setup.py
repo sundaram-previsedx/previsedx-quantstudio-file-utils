@@ -24,15 +24,12 @@ test_requirements = []
 setup(
     author="Jaideep Sundaram",
     author_email='sundaram.previse@gmail.com',
-    python_requires='>=3.6',
+    python_requires='>=3.10',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.10',
     ],
     description="Collection of modules for processing QuantStudio files.",
     entry_points={

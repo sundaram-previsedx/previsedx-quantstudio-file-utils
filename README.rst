@@ -2,36 +2,43 @@
 PreviseDx QuantStudio File Utils
 ================================
 
-
-.. image:: https://img.shields.io/pypi/v/previsedx_quantstudio_file_utils.svg
-        :target: https://pypi.python.org/pypi/previsedx_quantstudio_file_utils
-
-.. image:: https://img.shields.io/travis/sundaram-previsedx/previsedx_quantstudio_file_utils.svg
-        :target: https://travis-ci.com/sundaram-previsedx/previsedx_quantstudio_file_utils
-
-.. image:: https://readthedocs.org/projects/previsedx-quantstudio-file-utils/badge/?version=latest
-        :target: https://previsedx-quantstudio-file-utils.readthedocs.io/en/latest/?version=latest
-        :alt: Documentation Status
-
-
-
-
 Collection of Python modules for processing QuantStudio files
 
+.. image:: use_cases.png
+    :alt: Use Case Diagram
+    :align: center
 
-* Free software: GNU General Public License v3
-* Documentation: https://previsedx-quantstudio-file-utils.readthedocs.io.
+
+.. image:: class_diagrams.png
+    :alt: Class Diagram
+    :align: center
 
 
-Features
---------
+Usage
+-----
+.. code-block:: python
 
-* TODO
+    import os
+    from previsedx_quantstudio_file_utils import QuantStudioXlsxParser as Parser
+    from previsedx_quantstudio_file_utils import constants
+    import yaml
+    from pathlib import Path
 
-Credits
--------
+    config_file = "conf/config.yaml"
+    if not os.path.exists(config_file):
+        config_file = constants.DEFAULT_CONFIG_FILE
+    config = yaml.safe_load(Path(config_file).read_text())
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+    parser = Parser(
+        config=config,
+        config_file=config_file,
+        logfile=logfile,
+        outdir=outdir,
+        outfile=outfile,
+        verbose=constants.verbose,
+    )
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+    infile = "quantstudio.xls"
+    records = parser.get_records(infile)
+    for record in records:
+        print(f"Quantity mean is '{record.quantitymean}' for sample '{record.samplename}'")
